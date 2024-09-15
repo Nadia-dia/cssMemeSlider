@@ -1,15 +1,11 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    row-gap: 0.5em;
+    margin: 0 auto;
     background-color: #4A5759;
 }
 
@@ -17,17 +13,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 3em auto;
+    padding: 0 1.5em;
     row-gap: 1em;
-    width: 50%;
+    max-width: 50rem;
+    width:100%;
     overflow: hidden;
 }
 
 .slides{
     display: flex;
     width: 100%;
-    margin-left: -300%;
+    margin-left: 0;
     transition: all 0.15s ease;
+    overflow: hidden;
 }
 
 .slide{
@@ -46,6 +45,7 @@ body {
 .control-wrapper{
     display:flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .text-container>.text:nth-child(2),
@@ -56,24 +56,44 @@ body {
 
 .text{
     color: #F7E1D7;
+    font-size: 1.3rem;
+    margin: 0;
 }
 
 .bullets{
     display: flex;
+    align-items: center;
 }
 
 .bullets label{
+    height: 1.5rem;
+    width: 1.5rem;
     cursor: pointer;
-    padding: 0.3em .8em;
 }
 
 label .circle{
-    display: inline-block;
+    display: block;
+    margin: 0.45em auto;
     width: .6em;
     height: .6em;
-    border: solid #EDAFB8 1px;
+    border: solid #F7E1D7 1px;
     border-radius: 50%;
+    background-color: #F7E1D7;
+    transition:  background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.bullets label:hover .circle{
     background-color: #EDAFB8;
+    border-color: #EDAFB8;
+}
+
+.bullets label:active .circle{
+    background-color: #B0C4B1;
+    border-color: #B0C4B1;
+}
+
+#slide1:checked ~ .control-wrapper .bullets label:first-child .circle{
+    background-color: transparent;
 }
 
 
